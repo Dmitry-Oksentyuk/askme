@@ -10,5 +10,6 @@ class Question < ActiveRecord::Base
   # эта валидация препятствует созданию Вопросов, у которых нет пользователя
   # если задан пустой text, объект не будет сохранен в базу
   validates :text, :user, presence: true
+  validates :text, length: { maximum: 255 }
 
 end
