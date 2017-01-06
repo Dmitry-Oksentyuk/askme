@@ -15,6 +15,15 @@ class User < ActiveRecord::Base
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
+  
+  #проверка максимальной длины юзернейма, не более 40 символов
+  validates :username, length: {maximum: 40}
+
+  #Проверка формата юзернейма пользователя (только латинские буквы, цифры, и знак _)
+  validates :username, format: {with: /\w/}
+
+  #проверка правильности ввода емаила
+  validates :email, format: {with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
 
   # виртуальное поле, которое не сохраняется в базу
   # из него перед сохранение читается пароль, и сохраняется в базу уже
