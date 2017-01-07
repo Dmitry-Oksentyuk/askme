@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   #перед сохранением переводим юзернейм в нижний регистр
-  before_save :converted_downcase
+  before_validation :converted_downcase
 
   # шифруем пароль, если он задан
   def encrypt_password
@@ -74,6 +74,6 @@ class User < ActiveRecord::Base
   end
 
   def converted_downcase
-    self.username = self.username.downcase
+    self.username = username.downcase
   end
 end
