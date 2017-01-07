@@ -7,62 +7,57 @@
 #   3. Позволять пользователю редактировать свою страницу
 #
 class UsersController < ApplicationController
+
+  before_action :load_user, except: [:index, :new, :create]
   # Это действие отзывается, когда пользователь заходит по адресу
   # /users
   def index
-    # Мы создаем массив из двух болванок пользователей
-    # Для создания фейковой модели мы просто вызываем метод User.new
-    # который создает модель, не записывая её в базу
-    @users = [
-      User.new(
-        id: 1,
-        name: 'Vadim',
-        username: 'installero',
-        avatar_url: 'https://secure.gravatar.com/avatar/71269686e0f757ddb4f73614f43ae445?s=100'
-      ),
-      User.new(
-        id: 2,
-        name: 'Misha',
-        username: 'aristofun'
-      )
-    ]
+    @user = User.all
   end
 
   def new
+    redirect_to root_url, alert: 'Вы уже залогинены' if @current_user.present?
+    @user = User.new
+  end
+
+  def create
+    redirect_to root_url, alert: 'Вы уже залогинены' if @current_user.present?
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to root_url, notice: 'Пользователь успешно зарегестрирован!'
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: 'Данные обновлены'
+    else
+      render 'edit'
+    end
+  end
+
   # Это действие отзывается, когда пользователь заходит по адресу
   # /users/:id, например /users/1
   def show
-    # Болванка пользователя
-    @user = User.new(
-      name: 'Vadim',
-      username: 'installero',
-      avatar_url: 'https://secure.gravatar.com/avatar/71269686e0f757ddb4f73614f43ae445?s=100'
-    )
+    @questions = @user.questions.order(created_at: :desc)
 
-    # Болванка вопросов для пользователя
-    @questions = [
-      Question.new(
-          text: 'Как дела?',
-          created_at: Date.parse('27.03.2016')
-      ),
-      Question.new(
-          text: 'В чем смысл жизни?',
-          created_at: Date.parse('27.03.2016')
-      ),
-      Question.new(
-          text: 'Привет! Что делаешь?',
-          created_at: Date.parse('27.01.2017')
-      )
-    ]
-
-    # Болванка для нового вопроса
-    @new_question = Question.new
-
-    # Ни одна из болванок не достается из базы
+    @new_question = @user.questions.build
   end
+
+  private
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation,
+                                 :name, :username, :avatar_url)
+  end
+
+  def load_user
+    @user = User.find(params[:id])
+  end
+
 end
