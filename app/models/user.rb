@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-  
+
   #проверка максимальной длины юзернейма, не более 40 символов
   validates :username, length: {maximum: 40}
 
@@ -34,6 +34,9 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
 
   before_save :encrypt_password
+
+  #перед сохранением переводим юзернейм в нижний регистр
+  before_save :converted_downcase
 
   # шифруем пароль, если он задан
   def encrypt_password
@@ -68,5 +71,9 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def converted_downcase
+    self.username = self.username.downcase
   end
 end
