@@ -9,6 +9,8 @@
 class UsersController < ApplicationController
 
   before_action :load_user, except: [:index, :new, :create]
+  before_action :authorize_user, except: [:index, :new, :create, :show]
+
   # Это действие отзывается, когда пользователь заходит по адресу
   # /users
   def index
@@ -60,4 +62,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def authorize_user
+    reject_user unless @user == current_user
+  end
 end
