@@ -2,10 +2,16 @@
   display: inline-block;
 }
 
-.user-header {
+.user-header-blue {
   padding: 20px 0;
   background: #005a55;
   color: white;
+}
+
+.user-header-red {
+    padding: 20px 0;
+    background: red;
+    color: white;
 }
 
 .user-header a {
