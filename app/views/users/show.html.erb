@@ -1,30 +1,12 @@
 <%#В шаблоне show мы пишем html-код для вывода внутреннго содержимого страницы пользователя%>
 
 <%#Блок с информацией о пользователей%>
-<div class="user-header text-center">
-  <h1 class="title-medium">
-    <%= @user.name %>
-  </h1>
 
-  <div class="buffer-both">
-    <%= link_to 'Редактировать профиль', edit_user_path(@user) if current_user == @user %>
-  </div>
-
-  <div class="user-image-div">
-    <%#Мы используем хелперы image_tag (встроенный в rails) и наш user_avatar%>
-    <%= image_tag user_avatar(@user), class: 'user-image', alt: '[Фото]' %>
-  </div>
-
-  <h2 class="title-small buffer-both">
-    @<%= @user.username %>
-  </h2>
-
-  <div class="user-ask-button container text-center">
-    <%#Используем встроенный в rails хелпер link_to%>
-    <%= link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button' %>
-  </div>
-</div>
-
+<% if @user.color == 0 %>
+<%= render partial: 'blue_color'%>
+<% elsif @user.color == 1 %>
+<%= render partial: 'red_color'%>
+<%end%>
 <%#Блок с формой для задавания пользователю вопроса%>
 <div class="user-question-form-div column-1-4 column-1-4-right" id='ask-form'>
   <div class="user-question-form buffer-both">

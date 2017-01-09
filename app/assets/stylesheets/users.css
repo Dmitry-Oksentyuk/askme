@@ -2,7 +2,7 @@
   display: inline-block;
 }
 
-.user-header-blue {
+.user-header {
   padding: 20px 0;
   background: #005a55;
   color: white;
@@ -10,7 +10,7 @@
 
 .user-header-red {
     padding: 20px 0;
-    background: red;
+    background: #dc554f;
     color: white;
 }
 

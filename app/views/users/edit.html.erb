@@ -31,6 +31,15 @@
           <%= f.text_field :avatar_url, class: 'form-text-field' %>
         </div>
 
+        <div class="form-field">
+          <%= f.label 'Цвет фона аватарки', class: 'form-label' %>
+          <%@user.color = 0 %>
+          <%= f.radio_button(:color, 0)%>
+          <%= f.label  'Синий' %>
+          <%= f.radio_button(:color, 1)%>
+          <%= f.label 'Красный'%>
+        </div>
+
         <div class="buffer-top-large buffer-bottom">
           Если не хотите менять пароль — оставьте эти поля пустыми!
         </div>
