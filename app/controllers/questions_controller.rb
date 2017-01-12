@@ -56,7 +56,7 @@ class QuestionsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def question_params
       if current_user.present? && params[:question][:user_id].to_i == current_user.id
-        params.require(:question).permit(:user_id, :text, :answer)
+        params.require(:question).permit(:user_id, :text, :answer, :username)
       else
         params.require(:question).permit(:user_id, :text)
       end

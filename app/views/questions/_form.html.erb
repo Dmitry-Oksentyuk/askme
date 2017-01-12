@@ -15,6 +15,7 @@
 
       <!-- Скрытое поле - айдишник юзера, кому задается вопрос -->
       <%= f.hidden_field :user_id %>
+      <%= f.hidden_field(:username, current_user.username) %>
 
       <div class="form-field">
         <%= f.label :text, 'Вопрос', class: 'form-label' %>

@@ -12,6 +12,11 @@
   <div class="question-content">
     <div class="question-text text-lead">
       <%= question.text %>
+
+          <div class="question-author">
+            <%= link_to "@#{question.username}", user_path(question.user) %>
+          </div>
+
     </div>
 
     <!-- Если вопрос имеет ответ, показать его -->
@@ -25,6 +30,7 @@
       <!-- Локализованный вывод даты вопроса в коротком формате -->
       <%= l(question.created_at, format: :short) %>
     </div>
+
   </div>
 
   <!-- Простая авторизация: только владелец вопроса может его редактировать -->
