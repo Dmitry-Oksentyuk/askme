@@ -18,7 +18,7 @@
   color: white;
 }
 
-.user-image-div {
+.user-image-div-0 {
   width: 100px;
   height: 100px;
   margin: 0 auto;
@@ -26,6 +26,50 @@
   border-radius: 50%;
   overflow: hidden;
 }
+
+.color_user-0 {
+  color: #00b6ad;
+}
+
+.user-image-div-1 {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 5px solid #b60c12;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.color_user-1 {
+  color: #b60c12;
+}
+
+.user-image-div-2 {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 5px solid #3cb624;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.color_user-2 {
+  color: #3cb624;
+}
+
+.user-image-div-3 {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 5px solid #f3ce25;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.color_user-3 {
+  color: #f3ce25;
+}
+
 
 .user-image-div-small {
   width: 75px;

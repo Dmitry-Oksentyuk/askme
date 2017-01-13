@@ -33,11 +33,22 @@
 
         <div class="form-field">
           <%= f.label 'Цвет фона аватарки', class: 'form-label' %>
-
+          <div class="color_user-0">
           <%= f.radio_button(:color, 0)%>
-          <%= f.label  'Синий' %>
+          <%= f.label  'Бирюзовый' %>
+          </div>
+          <div class="color_user-1">
           <%= f.radio_button(:color, 1)%>
           <%= f.label 'Красный'%>
+          </div>
+          <div class="color_user-2">
+          <%= f.radio_button(:color, 2)%>
+          <%= f.label  'Зеленый' %>
+          </div>
+          <div class="color_user-3">
+          <%= f.radio_button(:color, 3)%>
+          <%= f.label 'Желтый'%>
+          </div>
         </div>
 
         <div class="buffer-top-large buffer-bottom">

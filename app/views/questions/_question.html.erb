@@ -14,7 +14,7 @@
       <%= question.text %>
 
           <div class="question-author">
-            <%= link_to "@#{question.username}", user_path(question.user) %>
+            <%= link_to "@#{question.user.username}", user_path(question.user_id) %>
           </div>
 
     </div>
