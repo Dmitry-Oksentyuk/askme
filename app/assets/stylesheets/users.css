@@ -18,52 +18,40 @@
   color: white;
 }
 
-.user-image-div-0 {
+.user-image-div {
   width: 100px;
   height: 100px;
   margin: 0 auto;
-  border: 5px solid #00b6ad;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.user-radius-color-0 {
+  border: 5px solid #00b6ad;
 }
 
 .color_user-0 {
   color: #00b6ad;
 }
 
-.user-image-div-1 {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
+.user-radius-color-1 {
   border: 5px solid #b60c12;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .color_user-1 {
   color: #b60c12;
 }
 
-.user-image-div-2 {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
+.user-radius-color-2 {
   border: 5px solid #3cb624;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .color_user-2 {
   color: #3cb624;
 }
 
-.user-image-div-3 {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
+.user-radius-color-3 {
   border: 5px solid #f3ce25;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .color_user-3 {

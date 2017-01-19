@@ -9,7 +9,7 @@
   <% @user.each do |user| %>
       <div class="users-list-item">
         <% user.color = 0 if user.color == nil%>
-        <div class="user-image-div-<%= user.color %> user-image-div-small">
+        <div class="user-image-div user-radius-color-<%= user.color %> user-image-div-small">
           <%# Пользуемся аж тремя хелперами %>
           <%# link_to — генерирует ссылку %>
           <%# image_tag — генерирует картинку %>
