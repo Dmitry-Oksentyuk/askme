@@ -13,10 +13,11 @@
     <div class="question-text text-lead">
       <%= question.text %>
 
+      <% if question.author_question.present? %>
           <div class="question-author">
-            <%= link_to "@#{question.user.username}", user_path(question.user_id) %>
+            <%= link_to "@#{question.author_question.username}", user_path(question.author_question) %>
           </div>
-
+      <% end %>
     </div>
 
     <!-- Если вопрос имеет ответ, показать его -->

@@ -24,6 +24,8 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
+    @question.author_question = current_user if current_user.present?
+
     if @question.save
       redirect_to user_path(@question.user), notice: 'Question was successfully created.'
     else

@@ -7,6 +7,8 @@ class Question < ActiveRecord::Base
   # она же добавляет метод .user к данному объекту
   belongs_to :user
 
+  belongs_to :author_question, class_name: 'User'
+
   # эта валидация препятствует созданию Вопросов, у которых нет пользователя
   # если задан пустой text, объект не будет сохранен в базу
   validates :text, :user, presence: true
