@@ -9,8 +9,14 @@ Rails.application.routes.draw do
   # Эти две строчки добавляют ресурсы для пользователей и вопросов
   # Ресурс — это набор путей для управления соответствующей моделью
   # Посмотрите, что напишет команда rake routes
-  resources :users, except: [:desdtroy]
+
+  # ресурс пользователей (экшен destroy не поддерживается)
+  resources :users, except: [:destroy]
+
+  # ресурс сессий (только три экшена :new, :create, :destroy)
+  resource :session, only: [:new, :create, :destroy]
+
+  # ресурс вопросов (кроме экшенов :show, :new, :index)
   resources :questions, except: [:show, :new, :index]
-  resource :sessions, only: [:new, :create, :destroy]
 
 end
